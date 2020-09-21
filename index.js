@@ -17,12 +17,13 @@ module.exports = class b64 extends Plugin {
         usage: '{c} usage',
         executor: (args) => ({
           send: true,
-          result: atob(args)
+          result: atob(args).replace(/,/g,' ')
         })
       });
   }
 
   pluginWillUnload () {
-    powercord.api.commands.unregisterCommand('encode', 'decode');
+    powercord.api.commands.unregisterCommand('encode');
+    powercord.api.commands.unregisterCommand('decode');
   }
 };
