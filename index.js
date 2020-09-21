@@ -1,11 +1,10 @@
 const { Plugin } = require('powercord/entities');
-
 module.exports = class b64 extends Plugin {
   startPlugin () {
     powercord.api.commands.registerCommand({
       command: 'encode',
-      description: 'name',
-      usage: '{c} usage',
+      description: 'Base64 Encoder',
+      usage: '{c} <ASCII String>',
       executor: (args) => ({
         send: true,
         result: btoa(args)
@@ -13,8 +12,8 @@ module.exports = class b64 extends Plugin {
     });
     powercord.api.commands.registerCommand({
         command: 'decode',
-        description: 'name',
-        usage: '{c} usage',
+        description: 'Base64 Decoder',
+        usage: '{c} <Base64 String>',
         executor: (args) => ({
           send: true,
           result: atob(args).replace(/,/g,' ')
