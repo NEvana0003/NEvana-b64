@@ -1,6 +1,6 @@
 const { Plugin } = require('powercord/entities');
 
-module.exports = class Mock extends Plugin {
+module.exports = class b64 extends Plugin {
   startPlugin () {
     powercord.api.commands.registerCommand({
       command: 'encode',
@@ -23,6 +23,6 @@ module.exports = class Mock extends Plugin {
   }
 
   pluginWillUnload () {
-    powercord.api.commands.unregisterCommand('mock');
+    powercord.api.commands.unregisterCommand('encode', 'decode');
   }
 };
